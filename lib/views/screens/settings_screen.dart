@@ -4,7 +4,9 @@ import 'package:local_storage/views/widgets/drawer.dart';
 
 class Second_Screen extends StatefulWidget {
   final ValueChanged<bool> onThemeChanged;
-  const Second_Screen({super.key, required this.onThemeChanged});
+  final ValueChanged<String> setImage;
+  const Second_Screen(
+      {super.key, required this.onThemeChanged, required this.setImage});
 
   @override
   State<Second_Screen> createState() => _Second_ScreenState();
@@ -16,6 +18,7 @@ class _Second_ScreenState extends State<Second_Screen> {
     return Scaffold(
       drawer: SettingDrawer(
         onThemeChanged: widget.onThemeChanged,
+        setImage: widget.setImage,
       ),
       appBar: AppBar(
         title: const Text(

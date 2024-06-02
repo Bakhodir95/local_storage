@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:local_storage/utils/constants.dart';
 import 'package:local_storage/views/screens/home_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main(List<String> args) {
   runApp(MayApp());
@@ -13,8 +14,30 @@ class MayApp extends StatefulWidget {
 
 class _MayAppState extends State<MayApp> {
   void toggleThemeMode(bool value) {
-    AppConstants.themeMode = value ? ThemeMode.dark : ThemeMode.light;
-    setState(() {});
+    setState(() {
+      AppConstants.themeMode = value ? ThemeMode.dark : ThemeMode.light;
+    });
+  }
+
+  void setImageApp(String imageUrl) {
+    setState(() {
+      AppConstants.imageUrl = imageUrl;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    loding();
+  }
+
+  Future<void> loding() async {
+    final sharedPreferences = await SharedPreferences.getInstance();
+    setState(() {
+      AppConstants.themeMode = sharedPreferences.getBool("theme") == true
+          ? ThemeMode.light
+          : ThemeMode.dark;
+    });
   }
 
   @override
@@ -27,6 +50,7 @@ class _MayAppState extends State<MayApp> {
       themeMode: AppConstants.themeMode,
       home: HomeScreen(
         onThemeChanged: toggleThemeMode,
+        setImage: setImageApp,
       ),
     );
   }

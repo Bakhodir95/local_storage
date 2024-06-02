@@ -4,7 +4,9 @@ import 'package:local_storage/views/screens/settings_screen.dart';
 
 class SettingDrawer extends StatelessWidget {
   final ValueChanged<bool> onThemeChanged;
-  const SettingDrawer({super.key, required this.onThemeChanged});
+  final ValueChanged<String> setImage;
+  const SettingDrawer(
+      {super.key, required this.onThemeChanged, required this.setImage});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class SettingDrawer extends StatelessWidget {
                     MaterialPageRoute(builder: (ctx) {
                   return Second_Screen(
                     onThemeChanged: onThemeChanged,
+                    setImage: setImage,
                   );
                 }));
               },
@@ -37,6 +40,7 @@ class SettingDrawer extends StatelessWidget {
                     MaterialPageRoute(builder: (ctx) {
                   return HomeScreen(
                     onThemeChanged: onThemeChanged,
+                    setImage: setImage,
                   );
                 }));
               },
