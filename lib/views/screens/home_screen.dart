@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:local_storage/views/screens/settings_screen.dart';
 import 'package:local_storage/views/widgets/drawer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -9,7 +8,8 @@ int? age;
 int? phoneNumber;
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final ValueChanged<bool> onThemeChanged;
+  HomeScreen({super.key, required this.onThemeChanged});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -48,7 +48,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: SettingDrawer(),
+      drawer: SettingDrawer(
+        onThemeChanged: (bool value) {},
+      ),
       appBar: AppBar(
         centerTitle: true,
         title: const Text("Shared Preferences"),

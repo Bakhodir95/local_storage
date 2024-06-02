@@ -3,7 +3,8 @@ import 'package:local_storage/views/screens/home_screen.dart';
 import 'package:local_storage/views/screens/settings_screen.dart';
 
 class SettingDrawer extends StatelessWidget {
-  const SettingDrawer({super.key});
+  final ValueChanged<bool> onThemeChanged;
+  const SettingDrawer({super.key, required this.onThemeChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,9 @@ class SettingDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (ctx) {
-                  return HomeScreen();
+                  return HomeScreen(
+                    onThemeChanged: (bool value) {},
+                  );
                 }));
               },
               title: const Text("Home Screen"),
