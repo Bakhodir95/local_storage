@@ -21,7 +21,9 @@ class SettingDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (ctx) {
-                  return Second_Screen();
+                  return Second_Screen(
+                    onThemeChanged: (bool value) {},
+                  );
                 }));
               },
               title: const Text("Settings"),
