@@ -31,7 +31,7 @@ class SettingDrawer extends StatelessWidget {
                 }));
               },
               title: const Text("Settings"),
-              trailing: Icon(
+              trailing: const Icon(
                 Icons.keyboard_arrow_right,
               )),
           ListTile(
