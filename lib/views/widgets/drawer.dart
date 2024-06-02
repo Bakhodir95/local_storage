@@ -1,0 +1,46 @@
+import 'package:flutter/material.dart';
+import 'package:local_storage/views/screens/home_screen.dart';
+import 'package:local_storage/views/screens/settings_screen.dart';
+
+class SettingDrawer extends StatelessWidget {
+  const SettingDrawer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: Column(
+        children: [
+          const DrawerHeader(
+              decoration: BoxDecoration(color: Colors.amber),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [Text("Mexmonxonalar"), Text("Menyu")],
+              )),
+          ListTile(
+              onTap: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (ctx) {
+                  return Second_Screen();
+                }));
+              },
+              title: const Text("Settings"),
+              trailing: Icon(
+                Icons.keyboard_arrow_right,
+              )),
+          ListTile(
+              onTap: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (ctx) {
+                  return HomeScreen();
+                }));
+              },
+              title: const Text("Home Screen"),
+              trailing: Icon(
+                Icons.keyboard_arrow_right,
+              ))
+        ],
+      ),
+    );
+  }
+}
