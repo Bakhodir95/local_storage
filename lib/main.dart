@@ -37,6 +37,7 @@ class _MayAppState extends State<MayApp> {
       AppConstants.themeMode = sharedPreferences.getBool("theme") == true
           ? ThemeMode.light
           : ThemeMode.dark;
+      AppConstants.texSize = sharedPreferences.getDouble("textsize") ?? 16;
     });
   }
 

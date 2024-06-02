@@ -29,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     String imageUrl = AppConstants.imageUrl;
     final sharedPreferences = await SharedPreferences.getInstance();
     await sharedPreferences.setBool("theme", theme);
+    await sharedPreferences.setDouble("textsize", AppConstants.texSize);
     await sharedPreferences.setString("imageUrl", imageUrl);
 
     await sharedPreferences.setString(
@@ -63,18 +64,20 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("Shared Preferences"),
+        title: Text("Shared Preferences",
+            style: TextStyle(fontSize: AppConstants.texSize * 1.2)),
         backgroundColor: Color.fromARGB(255, 23, 219, 219),
       ),
       body: Container(
         clipBehavior: Clip.none,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
-            image: DecorationImage(
-          image: AssetImage(AppConstants.imageUrl),
-          fit: BoxFit.cover,
-        )),
+        // decoration: BoxDecoration(
+        //     image: DecorationImage(
+        //   image: AssetImage(AppConstants.imageUrl),
+        //   fit: BoxFit.cover,
+        // )
+        // ),
         child: Column(
           children: [
             const Gap(60),
@@ -120,15 +123,21 @@ class _HomeScreenState extends State<HomeScreen> {
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: const Text("Information saved successfully"),
-                            content: const Text(
-                                "You can have access to saved info by clicking Get button"),
+                            title: Text("Information saved successfully",
+                                style:
+                                    TextStyle(fontSize: AppConstants.texSize)),
+                            content: Text(
+                                "You can have access to saved info by clicking Get button",
+                                style:
+                                    TextStyle(fontSize: AppConstants.texSize)),
                             actions: [
                               TextButton(
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
-                                  child: const Text("Ok"))
+                                  child: Text("Ok",
+                                      style: TextStyle(
+                                          fontSize: AppConstants.texSize)))
                             ],
                           );
                         });
@@ -145,9 +154,12 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             const Gap(20),
-            Text(name == null || age == null || phoneNumber == null
-                ? ""
-                : "Name: $name \nAge: $age \nPhone Number: +$phoneNumber"),
+            Text(
+              name == null || age == null || phoneNumber == null
+                  ? ""
+                  : "Name: $name \nAge: $age \nPhone Number: +$phoneNumber",
+              style: TextStyle(fontSize: AppConstants.texSize),
+            ),
           ],
         ),
       ),
