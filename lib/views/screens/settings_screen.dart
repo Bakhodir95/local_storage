@@ -16,25 +16,34 @@ class _Second_ScreenState extends State<Second_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: SettingDrawer(
-        onThemeChanged: widget.onThemeChanged,
-        setImage: widget.setImage,
-      ),
-      appBar: AppBar(
-        title: const Text(
-          "Settings",
+        drawer: SettingDrawer(
+          onThemeChanged: widget.onThemeChanged,
+          setImage: widget.setImage,
         ),
-        centerTitle: true,
-      ),
-      body: ListView(
-        children: [
-          SwitchListTile(
-            value: AppConstants.themeMode == ThemeMode.dark,
-            onChanged: widget.onThemeChanged,
-            title: const Text("Dark Mode"),
-          )
-        ],
-      ),
-    );
+        appBar: AppBar(
+          title: const Text(
+            "Settings",
+          ),
+          centerTitle: true,
+        ),
+        body: Container(
+          clipBehavior: Clip.none,
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+            image: AssetImage(AppConstants.imageUrl),
+            fit: BoxFit.cover,
+          )),
+          child: ListView(
+            children: [
+              SwitchListTile(
+                value: AppConstants.themeMode == ThemeMode.dark,
+                onChanged: widget.onThemeChanged,
+                title: const Text("Dark Mode"),
+              )
+            ],
+          ),
+        ));
   }
 }
