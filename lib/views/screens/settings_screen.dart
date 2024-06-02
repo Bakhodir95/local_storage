@@ -20,7 +20,13 @@ class _Second_ScreenState extends State<Second_Screen> {
         centerTitle: true,
       ),
       body: ListView(
-        children: [SwitchListTile(value: true, onChanged: (value) {})],
+        children: [
+          SwitchListTile(
+            value: true,
+            onChanged: (value) {},
+            title: const Text("DakdMode"),
+          )
+        ],
       ),
     );
   }
