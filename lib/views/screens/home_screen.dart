@@ -52,25 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text("Shared Preferences"),
-        backgroundColor: Colors.amber,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: TextButton(
-                onPressed: () {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Second_Screen(),
-                      ));
-                },
-                child: const Text(
-                  'Settings',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.black),
-                )),
-          )
-        ],
+        backgroundColor: Colors.red,
       ),
       body: SingleChildScrollView(
         child: Column(

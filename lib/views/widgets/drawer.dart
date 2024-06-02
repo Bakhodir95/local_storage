@@ -36,7 +36,7 @@ class SettingDrawer extends StatelessWidget {
                 }));
               },
               title: const Text("Home Screen"),
-              trailing: Icon(
+              trailing: const Icon(
                 Icons.keyboard_arrow_right,
               ))
         ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:local_storage/views/widgets/drawer.dart';
 
 class Second_Screen extends StatefulWidget {
   const Second_Screen({super.key});
@@ -11,22 +12,16 @@ class _Second_ScreenState extends State<Second_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-      title: const Text(
-        "Settings",
-        textAlign: TextAlign.center,
+      drawer: SettingDrawer(),
+      appBar: AppBar(
+        title: const Text(
+          "Settings",
+        ),
+        centerTitle: true,
       ),
-      actions: [
-        Padding(
-          padding: const EdgeInsets.all(20),
-          child: TextButton(
-              onPressed: () {},
-              child: const Text(
-                'Home Screen',
-                style: TextStyle(color: Colors.black),
-              )),
-        )
-      ],
-    ));
+      body: ListView(
+        children: [SwitchListTile(value: true, onChanged: (value) {})],
+      ),
+    );
   }
 }
