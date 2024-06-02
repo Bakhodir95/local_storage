@@ -6,7 +6,17 @@ void main(List<String> args) {
   runApp(MayApp());
 }
 
-class MayApp extends StatelessWidget {
+class MayApp extends StatefulWidget {
+  @override
+  State<MayApp> createState() => _MayAppState();
+}
+
+class _MayAppState extends State<MayApp> {
+  void toggleThemeMode(bool value) {
+    AppConstants.themeMode = value ? ThemeMode.dark : ThemeMode.light;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
