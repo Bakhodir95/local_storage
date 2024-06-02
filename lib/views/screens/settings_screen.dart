@@ -25,9 +25,7 @@ class _Second_ScreenState extends State<Second_Screen> {
         children: [
           SwitchListTile(
             value: AppConstants.themeMode == ThemeMode.dark,
-            onChanged: (widget.) {
-           
-            },
+            onChanged: widget.onThemeChanged,
             title: const Text("Dark Mode"),
           )
         ],
