@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text("Shared Preferences"),
-        backgroundColor: Colors.red,
+        backgroundColor: Color.fromARGB(255, 23, 219, 219),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -92,34 +92,39 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const Gap(10),
-            ElevatedButton(
-              onPressed: () {
-                saveData();
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: const Text("Information saved successfully"),
-                        content: const Text(
-                            "You can have access to saved info by clicking Get button"),
-                        actions: [
-                          TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: const Text("Ok"))
-                        ],
-                      );
-                    });
-              },
-              child: const Text("Save"),
-            ),
-            const Gap(10),
-            ElevatedButton(
-              onPressed: () {
-                getData();
-              },
-              child: const Text("Get"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    saveData();
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text("Information saved successfully"),
+                            content: const Text(
+                                "You can have access to saved info by clicking Get button"),
+                            actions: [
+                              TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: const Text("Ok"))
+                            ],
+                          );
+                        });
+                  },
+                  child: const Text("Save"),
+                ),
+                const Gap(10),
+                ElevatedButton(
+                  onPressed: () {
+                    getData();
+                  },
+                  child: const Text("Get"),
+                ),
+              ],
             ),
             const Gap(20),
             Text(name == null || age == null || phoneNumber == null
