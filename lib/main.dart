@@ -25,7 +25,9 @@ class _MayAppState extends State<MayApp> {
           appBarTheme: const AppBarTheme(backgroundColor: Colors.blue)),
       darkTheme: ThemeData.dark(),
       themeMode: AppConstants.themeMode,
-      home: const HomeScreen(),
+      home: HomeScreen(
+        onThemeChanged: (bool value) {},
+      ),
     );
   }
 }

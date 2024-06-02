@@ -23,7 +23,7 @@ class SettingDrawer extends StatelessWidget {
                 Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (ctx) {
                   return Second_Screen(
-                    onThemeChanged: (bool value) {},
+                    onThemeChanged: onThemeChanged,
                   );
                 }));
               },
@@ -36,7 +36,7 @@ class SettingDrawer extends StatelessWidget {
                 Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (ctx) {
                   return HomeScreen(
-                    onThemeChanged: (bool value) {},
+                    onThemeChanged: onThemeChanged,
                   );
                 }));
               },

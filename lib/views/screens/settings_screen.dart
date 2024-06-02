@@ -14,7 +14,9 @@ class _Second_ScreenState extends State<Second_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: SettingDrawer(),
+      drawer: SettingDrawer(
+        onThemeChanged: (bool value) {},
+      ),
       appBar: AppBar(
         title: const Text(
           "Settings",
