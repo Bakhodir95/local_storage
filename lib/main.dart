@@ -26,7 +26,7 @@ class _MayAppState extends State<MayApp> {
       darkTheme: ThemeData.dark(),
       themeMode: AppConstants.themeMode,
       home: HomeScreen(
-        onThemeChanged: (bool value) {},
+        onThemeChanged: toggleThemeMode,
       ),
     );
   }

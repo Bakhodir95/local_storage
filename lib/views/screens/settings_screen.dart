@@ -15,7 +15,7 @@ class _Second_ScreenState extends State<Second_Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: SettingDrawer(
-        onThemeChanged: (bool value) {},
+        onThemeChanged: widget.onThemeChanged,
       ),
       appBar: AppBar(
         title: const Text(
